@@ -1,0 +1,153 @@
+//Pregunta 2
+funcion triangulo_estrellas()
+	Definir n, i, j Como Entero
+	n = 5
+	Para i <- 1 Hasta n 
+		Para j <- 1 Hasta i Hacer
+			Escribir "*" Sin Saltar // Respuesta (C=linea 6) por que esta Escribir sin saltar 
+		FinPara
+		Escribir ""
+	FinPara
+Finfuncion
+//Pregunta 3
+Funcion ejercicio3()
+	Definir a,b,x como entero
+	a =5
+	b=5
+	x=a+a*(a+b)-b*a+(trunc(b/3) -2 + a * mod2)
+	escribir x //Resultado (b= 30) 
+Finfuncion
+//Pregunta 4
+Funcion ejercicio4()
+	Definir n,m,r Como Entero
+	n=13
+	m=16
+	r=1
+	mientras (r <>0) Hacer
+		r=m mod n
+		si (r=0) Entonces
+			Escribir "m=",m,"n=",n
+		SiNo
+			n=m
+			m=r
+		FinSi
+	FinMientras 
+FinFuncion // Resultado (C; m=3, n=3) 
+//Pregunta 5
+Funcion ejercicio5()
+	// Inicio del algoritmo
+	DEFINIR EJER COMO CADENA; // Variable para almacenar el ejercicio
+	DEFINIR PARENTE, OPERA COMO CARACTER; // Variables para almacenar los paréntesis y operadores
+	DEFINIR CONTADORPA, CONTADOROP, i COMO ENTERO; // Variables para contar paréntesis, operadores y el índice del bucle
+	CONTADORPA <- 0; // Inicializar contador de paréntesis en 0
+	CONTADOROP <- 0; // Inicializar contador de operadores en 0
+	ESCRIBIR "DIGITE EL EJERCICIO"; // Solicitar al usuario que ingrese el ejercicio
+	LEER EJER; // Leer el ejercicio ingresado por el usuario
+	// Bucle para contar paréntesis
+	PARA i <- 0 HASTA LONGITUD(EJER) CON PASO 1 HACER
+		PARENTE <- SUBCADENA(EJER,i,i); // Obtener el carácter en la posición i del ejercicio
+		SI PARENTE ="(" o PARENTE =")" ENTONCES // Comprobar si el carácter es un paréntesis
+			CONTADORPA <- CONTADORPA + 1; // Incrementar el contador de paréntesis
+			Escribir "CONTADOR PARENTESISI",CONTADORPA; // Mostrar el contador de paréntesis
+		FINSI
+	FINPARA
+	CONTADOROP <- 0; // Reiniciar contador de operadores en 0
+	i<-1; // Reiniciar el índice en 1
+	// Bucle para contar operadores
+	PARA i <- 1 HASTA LONGITUD(EJER) CON PASO 1 HACER
+		OPERA <- SUBCADENA(EJER,i,i); // Obtener el carácter en la posición i del ejercicio
+		SI OPERA ="+" O OPERA ="-" O OPERA ="*" ENTONCES // Comprobar si el carácter es un operador
+			CONTADOROP <- CONTADOROP + 1; // Incrementar el contador de operadores
+			Escribir "CONTADOR OPERADOR",CONTADOROP; // Mostrar el contador de operadores
+		FINSI
+	FINPARA
+	// Comparar los contadores de paréntesis y operadores
+	SI CONTADORPA = CONTADOROP ENTONCES
+		ESCRIBIR"HAY IGUAL CANTIDAD DE PARENTECIS Y OPERADORES"; // Mostrar mensaje si hay igual cantidad
+	SINO
+		SI CONTADOROP > CONTADORPA ENTONCES
+			ESCRIBIR " HAY MAYOR CANTIDA DE OPERADORES"; // Mostrar mensaje si hay más operadores
+		SINO
+			ESCRIBIR "HAY MAYOR CANTIDAD DE PARENTESIS"; // Mostrar mensaje si hay más paréntesis
+		FINSI
+	FINSI
+	// Fin del algoritmo
+FinFuncion
+//Pregunta 6
+Funcion ejercicio6()
+	// Declaración de variables
+	Definir nombre Como Cadena
+	Definir edad, base Como Entero
+	Definir pulsaciones Como Real
+	// Solicitar y leer el nombre del usuario
+	Escribir "Ingrese su nombre:"
+	Leer nombre
+	// Solicitar y leer la edad del usuario
+	Escribir "Ingrese su edad en años:"
+	Leer edad
+	// Calcular la base de las pulsaciones según la edad
+	Si edad < 18 Entonces
+		base = 10
+	Sino Si edad >= 18 Y edad < 65 Entonces
+			base = 10 - (10 * 0.5)
+		Sino
+			base = 10 - (10 * 0.1)
+		FinSi
+		// Calcular las pulsaciones por segundo
+		pulsaciones = (200 - edad) / base
+		// Mostrar los resultados
+		Escribir "Nombre:", nombre
+		Escribir "Edad:", edad
+		Si edad < 18 Entonces
+			Escribir "Categoría: Menor de edad"
+		Sino Si edad >= 18 Y edad < 65 Entonces
+				Escribir "Categoría: Mayor de edad"
+			Sino
+				Escribir "Categoría: Adulto mayor"
+			FinSi
+			Escribir "Pulsaciones por segundo:", pulsaciones
+			// Fin del algoritmo
+		FinSi
+	FinSi
+FinFuncion
+//Pregunta 7
+Funcion ejercicio7()
+	// Declaración de variables
+	Definir contadorPares, contadorImpares, sumaPares, sumaImpares, cocientePares, cocienteImpares, num como Entero
+	contadorPares <- 0 // Inicialización del contador de números pares
+	contadorImpares <- 0 // Inicialización del contador de números impares
+	sumaPares <- 0 // Inicialización de la suma de números pares
+	sumaImpares <- 0 // Inicialización de la suma de números impares
+	Escribir "Ingrese una serie de números (ingrese -1 para terminar):"
+	Leer num
+	// Bucle para procesar los números ingresados
+	Mientras num <> -1 Hacer
+		Si num % 2 = 0 Entonces // Verifica si el número es par
+			sumaPares <- sumaPares + num // Suma el número par a la suma de pares
+			contadorPares <- contadorPares + 1 // Incrementa el contador de pares en 1
+		Sino
+			Si num % 3 <> 0 Entonces // Verifica si el número impar no es divisible por 3
+				sumaImpares <- sumaImpares + num // Suma el número impar no divisible por 3 a la suma de impares
+				contadorImpares <- contadorImpares + 1 // Incrementa el contador de impares en 1
+			Fin Si
+		Fin Si
+		Leer num // Lee el siguiente número ingresado por el usuario
+	Fin Mientras
+	Si contadorPares > 0 Entonces // Verifica si se encontraron números pares
+		cocientePares <- sumaPares / 3 // Calcula el promedio de los números pares múltiplos de 3
+		Escribir "El promedio de los números pares múltiplos de 3 es:", cocientePares
+	Fin Si
+	Si contadorImpares > 0 Entonces // Verifica si se encontraron números impares no divisibles por 3
+		cocienteImpares <- sumaImpares / 3 // Calcula el promedio de los números impares no múltiplos de 3
+		Escribir "El promedio de los números pares no múltiplos de 3 es:", cocienteImpares
+Fin Si
+FinFuncion
+//EJECUTAR EJERCICIOS DE EL EXAMEN HECHOS FUNCION
+Algoritmo examen
+	triangulo_estrellas()
+	ejercicio3()
+	ejercicio4()
+	ejercicio5()
+	ejercicio6()
+	ejercicio7()
+FinAlgoritmo
